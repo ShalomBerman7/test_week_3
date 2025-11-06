@@ -26,7 +26,17 @@ class Game:
 
 
     def battle(player, monster):
+        mon = Game.roll_dice(20)
+        mon += monster.speed
+        ply = Game.roll_dice(20)
+        ply += player.speed
+        if ply >= mon:
+            start = ply
+        else:
+            start = mon
         while p.hp >= 0 and monster.hp >= 0:
+            boom = Game.roll_dice(20)
+            boom += player
 
 
     def roll_dice(sides):
@@ -35,4 +45,4 @@ class Game:
 
 print(Game.roll_dice(6))
 
-Game.battle(p,Game.choose_random_monster())
+Game.battle(p,Game.choose_random_monster(self=None))
