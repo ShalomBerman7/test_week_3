@@ -25,7 +25,7 @@ class Game:
         return list_monster[rand]
 
 
-    def battle(player, monster):
+    def battle(player, monster):  #זה יותר פסאודו קוד מאשר קוד וגם הוא לא שלם אבל איבדתי את הראש אז ניסיתי לעשות מינימום
         mon = Game.roll_dice(20)
         mon += monster.speed
         ply = Game.roll_dice(20)
@@ -36,7 +36,19 @@ class Game:
             start = mon
         while p.hp >= 0 and monster.hp >= 0:
             boom = Game.roll_dice(20)
-            boom += player
+            boom += player.speed
+            if boom > mon.armor_rating:
+                faild = Game.roll_dice(6)
+                faild += player.power
+                mon.hp -= faild
+                if mon.hp <= 0:
+                    print(f'{player} Winner')
+                    break
+                else:
+                    'מחליפים'
+            else:
+                'מחליפים'
+
 
 
     def roll_dice(sides):
